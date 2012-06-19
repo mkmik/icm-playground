@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<process-definition name="repo-hi-openaire"
+	xmlns="http://sarasvati.googlecode.com/ProcessDefinition">
+	
+	<node name="playAround" type="PlaygroundStepJob" isStart="true">
+		<arc to="success" />
+		<arc name="failed" to="failure" />
+	</node>
+
+	<node name="success" type="Success" />
+
+	<node name="failure" />
+
+</process-definition>

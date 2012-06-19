@@ -23,6 +23,8 @@ public class PlaygroundStepJob extends AbstractJobNode {
 	public void execute(final Engine engine, final NodeToken token) {
 		log.info("Executing node");
 
+		token.getEnv().setAttribute("somePrecomputedParameter", "somePrecomputedValue");
+
 		executor.schedule(new Runnable() {
 			@Override
 			public void run() {

@@ -15,14 +15,6 @@ public class PlaygroundStepJob extends AbstractJobNode {
 	@Override
 	public void execute(Engine engine, NodeToken token) {
 		log.info("Executing node");
-		
-		try {
-			Thread.sleep(10000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		};
-		super.execute(engine, token);
 	}
 
 }

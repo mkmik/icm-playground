@@ -17,7 +17,8 @@
 	<!-- Sample schedulable job -->
 	<bean class="eu.dnetlib.playground.PlaygroundJob"
 		p:cronExpression="0 14 16 * * ?" p:enabled="true"
-		p:graph-ref="playgroundWorkflowGraph"/>
+		p:graph-ref="playgroundWorkflowGraph"
+		p:processRegistry-ref="msroProcessRegistry" />
 
 	<!-- Sample workflow -->
 	<bean id="playgroundWorkflowGraph" class="eu.dnetlib.workflow.sarasvati.SarasvatiGraphFactory"

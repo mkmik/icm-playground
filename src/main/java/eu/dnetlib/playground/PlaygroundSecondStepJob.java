@@ -15,7 +15,7 @@ public class PlaygroundSecondStepJob extends AbstractJobNode {
 	@Override
 	public void execute(final Engine engine, final NodeToken token) {
 		log.info(String.format("Second step running in thread %s", Thread.currentThread()));
-		
+		log.info(String.format("Parameter was: %s", token.getEnv().getAttribute("someParameter")));
 		engine.complete(token, Arc.DEFAULT_ARC);
 	}
 }

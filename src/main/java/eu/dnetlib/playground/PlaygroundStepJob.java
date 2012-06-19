@@ -27,6 +27,8 @@ public class PlaygroundStepJob extends AbstractJobNode {
 			@Override
 			public void run() {
 				log.info("Timer fired");
+				
+				token.getEnv().setAttribute("someParameter", "someComputedValue");
 				engine.complete(token, Arc.DEFAULT_ARC);
 			}
 		}, 10, TimeUnit.SECONDS);

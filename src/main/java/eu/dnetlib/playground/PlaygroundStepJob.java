@@ -20,6 +20,7 @@ public class PlaygroundStepJob extends AbstractJobNode {
 	ScheduledExecutorService executor = Executors.newScheduledThreadPool(4);
 
 	private String flavour;
+	private int duration;
 
 	@Override
 	public void execute(final Engine engine, final NodeToken token) {
@@ -35,7 +36,7 @@ public class PlaygroundStepJob extends AbstractJobNode {
 				token.getEnv().setAttribute("someParameter", "someComputedValue");
 				engine.complete(token, Arc.DEFAULT_ARC);
 			}
-		}, 10, TimeUnit.SECONDS);
+		}, duration, TimeUnit.SECONDS);
 	}
 
 	public String getFlavour() {
@@ -44,6 +45,14 @@ public class PlaygroundStepJob extends AbstractJobNode {
 
 	public void setFlavour(String flavour) {
 		this.flavour = flavour;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 
 }

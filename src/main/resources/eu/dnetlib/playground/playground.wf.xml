@@ -7,6 +7,7 @@
 		<arc name="failed" to="failure" />
 		<custom>
 			<flavour>sweet</flavour>
+			<duration>4</duration>
 		</custom>
 	</node>
 
@@ -15,10 +16,11 @@
 		<arc name="failed" to="failure" />
 		<custom>
 			<flavour>sour</flavour>
+			<duration>10</duration>
 		</custom>
 	</node>
 
-	<node name="playMore" type="PlaygroundSecondStepJob">
+	<node name="playMore" type="PlaygroundSecondStepJob" joinType="and">
 		<arc to="success" />
 		<arc name="failed" to="failure" />
 	</node>

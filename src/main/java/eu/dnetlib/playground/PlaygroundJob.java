@@ -60,4 +60,5 @@ public class PlaygroundJob extends AbstractSchedulable {
 	public void setProcessRegistry(GraphProcessRegistry processRegistry) {
 		this.processRegistry = processRegistry;
 	}
+
 }

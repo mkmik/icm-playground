@@ -2,9 +2,20 @@
 <process-definition name="playground"
 	xmlns="http://sarasvati.googlecode.com/ProcessDefinition">
 
-	<node name="playAround" type="PlaygroundStepJob" isStart="true">
+	<node name="playAroundSweet" type="PlaygroundStepJob" isStart="true">
 		<arc to="playMore" />
 		<arc name="failed" to="failure" />
+		<custom>
+			<flavour>sweet</flavour>
+		</custom>
+	</node>
+
+	<node name="playAroundSour" type="PlaygroundStepJob" isStart="true">
+		<arc to="playMore" />
+		<arc name="failed" to="failure" />
+		<custom>
+			<flavour>sour</flavour>
+		</custom>
 	</node>
 
 	<node name="playMore" type="PlaygroundSecondStepJob">

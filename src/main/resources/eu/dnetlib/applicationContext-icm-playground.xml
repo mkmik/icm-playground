@@ -16,10 +16,11 @@
 
 	<!-- Sample schedulable job -->
 	<bean class="eu.dnetlib.playground.PlaygroundJob"
-		p:cronExpression="0 14 16 * * ?" p:enabled="true" />
+		p:cronExpression="0 14 16 * * ?" p:enabled="true"
+		p:graph-ref="playgroundWorkflowGraph"/>
 
 	<!-- Sample workflow -->
-	<bean id="createHIOpenAireISGraph" class="eu.dnetlib.workflow.sarasvati.SarasvatiGraphFactory"
+	<bean id="playgroundWorkflowGraph" class="eu.dnetlib.workflow.sarasvati.SarasvatiGraphFactory"
 		p:engine-ref="msroWfEngine" p:definition="classpath:/eu/dnetlib/playground/playground.wf.xml" />
 
 	<bean id="wfNodePlaygroundStepJob" class="eu.dnetlib.playground.PlaygroundStepJob" />

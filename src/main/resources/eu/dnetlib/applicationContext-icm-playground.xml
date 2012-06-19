@@ -16,8 +16,7 @@
 
 	<!-- Sample schedulable job -->
 	<bean class="eu.dnetlib.playground.PlaygroundJob"
-		p:cronExpression="0 14 16 * * ?" p:enabled="true"
-		p:graph-ref="playgroundWorkflowGraph"
+		p:cronExpression="0 14 16 * * ?" p:enabled="true" p:graph-ref="playgroundWorkflowGraph"
 		p:processRegistry-ref="msroProcessRegistry" />
 
 	<!-- Sample workflow -->
@@ -25,4 +24,6 @@
 		p:engine-ref="msroWfEngine" p:definition="classpath:/eu/dnetlib/playground/playground.wf.xml" />
 
 	<bean id="wfNodePlaygroundStepJob" class="eu.dnetlib.playground.PlaygroundStepJob" />
+
+	<bean id="wfNodePlaygroundSecondStepJob" class="eu.dnetlib.playground.PlaygroundSecondStepJob" />
 </beans>

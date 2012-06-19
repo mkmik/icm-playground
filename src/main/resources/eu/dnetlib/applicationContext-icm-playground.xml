@@ -23,7 +23,7 @@
 	<bean id="playgroundWorkflowGraph" class="eu.dnetlib.workflow.sarasvati.SarasvatiGraphFactory"
 		p:engine-ref="msroWfEngine" p:definition="classpath:/eu/dnetlib/playground/playground.wf.xml" />
 
-	<bean id="wfNodePlaygroundStepJob" class="eu.dnetlib.playground.PlaygroundStepJob" />
+	<bean id="wfNodePlaygroundStepJob" class="eu.dnetlib.playground.PlaygroundStepJob" scope="prototype" />
 
-	<bean id="wfNodePlaygroundSecondStepJob" class="eu.dnetlib.playground.PlaygroundSecondStepJob" />
+	<bean id="wfNodePlaygroundSecondStepJob" class="eu.dnetlib.playground.PlaygroundSecondStepJob" scope="prototype" />
 </beans>

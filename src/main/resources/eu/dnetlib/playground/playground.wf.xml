@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<process-definition name="repo-hi-openaire"
+<process-definition name="playground"
 	xmlns="http://sarasvati.googlecode.com/ProcessDefinition">
 	
 	<node name="playAround" type="PlaygroundStepJob" isStart="true">

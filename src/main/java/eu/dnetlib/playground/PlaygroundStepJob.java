@@ -11,6 +11,7 @@ import com.googlecode.sarasvati.Arc;
 import com.googlecode.sarasvati.Engine;
 import com.googlecode.sarasvati.NodeToken;
 
+import eu.dnetlib.enabling.inspector.msro.progress.ProgressProvider;
 import eu.dnetlib.workflow.AbstractJobNode;
 
 public class PlaygroundStepJob extends AbstractJobNode {
@@ -22,11 +23,15 @@ public class PlaygroundStepJob extends AbstractJobNode {
 	private String flavour;
 	private int duration;
 
+	private PlaygroundProgressProvider progressProvider;
+
 	@Override
 	public void execute(final Engine engine, final NodeToken token) {
 		log.info("Executing node");
 
 		token.getEnv().setAttribute("somePrecomputedParameter", "somePrecomputedValue");
+
+		progressProvider = new PlaygroundProgressProvider(duration);
 
 		class Tick implements Runnable {
 			private int left;
@@ -38,6 +43,7 @@ public class PlaygroundStepJob extends AbstractJobNode {
 			@Override
 			public void run() {
 				log.info("Timer fired");
+				progressProvider.setCurrentValue(duration - left);
 				if (left > 0) {
 					executor.schedule(new Tick(left - 1), 1, TimeUnit.SECONDS);
 				} else {
@@ -65,6 +71,11 @@ public class PlaygroundStepJob extends AbstractJobNode {
 
 	public void setDuration(int duration) {
 		this.duration = duration;
+	}
+
+	@Override
+	public ProgressProvider getProgressProvider() {
+		return progressProvider;
 	}
 
 }

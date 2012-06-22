@@ -7,7 +7,7 @@
 		<arc name="failed" to="failure" />
 		<custom>
 			<flavour>sweet</flavour>
-			<duration>4</duration>
+			<duration>30</duration>
 		</custom>
 	</node>
 
@@ -16,7 +16,7 @@
 		<arc name="failed" to="failure" />
 		<custom>
 			<flavour>sour</flavour>
-			<duration>10</duration>
+			<duration>40</duration>
 		</custom>
 	</node>
 

@@ -28,15 +28,27 @@ public class PlaygroundStepJob extends AbstractJobNode {
 
 		token.getEnv().setAttribute("somePrecomputedParameter", "somePrecomputedValue");
 
-		executor.schedule(new Runnable() {
+		class Tick implements Runnable {
+			private int left;
+
+			Tick(int left) {
+				this.left = left;
+			}
+
 			@Override
 			public void run() {
 				log.info("Timer fired");
-				
-				token.getEnv().setAttribute("someParameter", "someComputedValue");
-				engine.complete(token, Arc.DEFAULT_ARC);
+				if (left > 0) {
+					executor.schedule(new Tick(left - 1), 1, TimeUnit.SECONDS);
+				} else {
+					token.getEnv().setAttribute("someParameter", "someComputedValue");
+					engine.complete(token, Arc.DEFAULT_ARC);
+				}
 			}
-		}, duration, TimeUnit.SECONDS);
+		}
+		;
+
+		new Tick(duration + 1).run();
 	}
 
 	public String getFlavour() {
